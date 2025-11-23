@@ -1,3 +1,4 @@
+import CheckBox from "../componenets/CheckBox";
 
 const Search = () => {
 
@@ -65,14 +66,32 @@ const Search = () => {
 
             <div className="text-[#228000] m-2 mt-3 rounded-2xl bg-[#202324] text-base">
 
+                <span className="ml-3">
+                    Tags and Filters
+                </span>
 
-                <form>
 
-                    <label>this is a  label</label>
+                <form className="grid grid-cols-4 gap-5 p-3  text-[.9rem]">
 
-                    <span className="ml-3">
-                        Tags and Filters
-                    </span>
+                    
+                    
+                    <CheckBox text="Swimming Pool" />
+                    <CheckBox text="Garage" />
+                    <CheckBox text="Basement" />
+                    <CheckBox text="Attic" />
+                    <CheckBox text="Fireplace" />
+                    <CheckBox text="Garden" />
+                    <CheckBox text="Balcony" />
+                    <CheckBox text="Patio" />
+                    <CheckBox text="Air Conditioning" />
+                    <CheckBox text="Heating System" />
+                    <CheckBox text="Hardwood Floors" />
+                    <CheckBox text="Carpeted Floors" />
+                    
+                    
+                    
+
+                    
                 </form>
 
                 <div> itemsshowcase#1</div>
