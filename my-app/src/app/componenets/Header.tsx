@@ -14,13 +14,13 @@ const Header = () => {
     
   return (
   
-    <div className="w-full h-[90vh] bg-[url(/images/header-bg.jpg)] bg-cover bg-center flex flex-col  text-4xl ">
-        <div className=" w-full h-[90vh]  bg-linear-to-t from-[#202324] to-[#202324]/30  flex  relative  ">
+    <div className="w-full h-[90vh] bg-[url(/images/header-bg.jpg)] bg-cover bg-center flex flex-col  text-5xl ">
+        <div className=" w-full h-[90vh]  bg-gradient-to-t from-[#202324] to-[#202324]/30  flex  relative  ">
 
            
             
 
-            <div className="ml-2 w-full max-w-full md:text-6xl text-3xl    ">
+            <div className="ml-2 w-full max-w-full md:text-6xl text-4xl    ">
                 <span className=" text-shadow-lg font-sans whitespace-normal " 
                 style={{ 
                     

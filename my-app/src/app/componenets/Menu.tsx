@@ -49,7 +49,7 @@ const Menu = () => {
                         }}
 
                         transition = {{
-                            type: 'easeInOut',
+                            type: "tween",
                             
                         }}
 
@@ -60,7 +60,7 @@ const Menu = () => {
 
 
 
-                            <img src={"/images/logo/evergreen_logo.png"} className="w-50 h-50 absolute mt-3 ml-[10vw]"/>
+                            <img src={"/images/logo/evergreen_logo.png"} className="w-[10rem] h-[10rem] absolute mt-3 ml-[10vw]"/>
 
                         
                         

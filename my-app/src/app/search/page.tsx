@@ -1,4 +1,5 @@
 import CheckBox from "../componenets/CheckBox";
+import Menu from "../componenets/Menu";
 
 const Search = () => {
 
@@ -22,8 +23,12 @@ const Search = () => {
 
                 
 
-                <nav className="ml-auto justify-end  mr-2">
-                    <ul className="flex items-center">
+                <nav className="ml-auto  justify-end  mr-2">
+
+                    <div className="xs:hidden"><Menu/></div>
+
+
+                    <ul className=" items-center hidden xs:flex gap-2">
                         <li>
 
                             <svg  className="w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +76,11 @@ const Search = () => {
                 </span>
 
 
-                <form className="grid grid-cols-4 gap-5 p-3  text-[.9rem]">
+                <form 
+                                    
+                    
+                
+                    className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-5 p-3  text-[.9rem]">
 
                     
                     
@@ -94,7 +103,14 @@ const Search = () => {
                     
                 </form>
 
-                <div> itemsshowcase#1</div>
+                
+            </div>
+            
+            
+            <div className="text-[#228000] m-2 mt-3 rounded-2xl bg-[#202324]"> 
+                
+                itemsshowcase#1
+
             </div>
 
 
