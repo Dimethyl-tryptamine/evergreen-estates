@@ -1,8 +1,27 @@
+"use client";
 import CheckBox from "../componenets/CheckBox";
 import Menu from "../componenets/Menu";
+import { useState,useRef } from "react";
 
 const Search = () => {
 
+
+  const [filters, setFilters] = useState({
+
+    minPrice: 0,
+    maxPrice: null,
+    category: [],
+    
+
+  }); 
+
+  const handleClick = () => (
+    console.log("button pressed")
+  )
+  
+
+  const input1 = useRef(null)
+  const input2 = useRef(null)
 
 
 
@@ -96,7 +115,36 @@ const Search = () => {
                     <CheckBox text="Heating System" />
                     <CheckBox text="Hardwood Floors" />
                     <CheckBox text="Carpeted Floors" />
+
+                    <div className="  hidden xs:flex">
+                        <input
+                            type="range"
+                            
+
+                            
+                            className=""
+                        />
+
+                        <input
+                            type="range"
+                            
+
+                            
+                            className=""
+                        />
+                        
+                    </div> 
+
+                    <button onClick={handleClick} className=" xs:hidden bg-[#228000] text-3xl text-white rounded">Apply Filters</button>
+
+                    <div className=" grid grid-cols-1 gap-1 xs:hidden">
+                        <input type="number" ref={input1} placeholder=" Min price" className="w-20 bg-[#141616] rounded" />
+                        <input type="number" ref={input2} placeholder=" Max price" className="w-20 bg-[#141616] rounded"  />
+                    </div>
+
+
                     
+                        
                     
                     
 
