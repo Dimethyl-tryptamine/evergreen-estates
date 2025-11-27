@@ -2,15 +2,17 @@ import FeaturedCommunities from "../componenets/FeaturedCommunities"
 import Header from "../componenets/Header"
 
 
-    export const Home = () => {
+const Home = () => {
 
 
-      return (
-        <>
+  return (
+    <>
 
-          <Header/>
-          <FeaturedCommunities/>
-        </>
+      <Header/>
+      <FeaturedCommunities/>
+    </>
 
 
-    )}
+)}
+
+export default Home
