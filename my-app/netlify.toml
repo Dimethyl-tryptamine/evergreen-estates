@@ -1,0 +1,4 @@
+[build]
+  base = "evergreen-estates/my-app"
+  publish = "out"
+  command = "npm run build"
