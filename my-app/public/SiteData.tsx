@@ -1,6 +1,7 @@
 export interface Houselisting {
   id: string;
   images: string[];
+  tags: string[];
   title: string;
   price: number;
   beds: number;
@@ -10,11 +11,11 @@ export interface Houselisting {
   description: string;
 };
 
-
 export const Featuredlistings: Houselisting[] = [
-    {
+  {
     id: "1",
     images: ["/images/House1.jpg", "/houses/Houseinterior1.jpg"],
+    tags: ["Swimming Pool", "Garage"],
     title: "Modern Family Home",
     price: 489000,
     beds: 4,
@@ -27,6 +28,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "2",
     images: ["/images/House2.jpg", "/houses/Houseinterior2.jpg"],
+    tags: ["Balcony", "Fireplace"],
     title: "Luxury Downtown Condo",
     price: 729000,
     beds: 2,
@@ -39,6 +41,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "3",
     images: ["/images/House3.jpg", "/houses/Houseinterior3.jpg"],
+    tags: ["Garden", "Patio"],
     title: "Cozy Suburban Cottage",
     price: 319000,
     beds: 3,
@@ -51,6 +54,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "4",
     images: ["/images/House4.jpg", "/houses/Houseinterior4.jpg"],
+    tags: ["Swimming Pool", "Attic"],
     title: "Spacious Country Estate",
     price: 899000,
     beds: 5,
@@ -63,6 +67,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "5",
     images: ["/images/House5.jpg", "/houses/Houseinterior5.jpg"],
+    tags: ["Air Conditioning", "Hardwood Floors"],
     title: "Urban Loft Studio",
     price: 259000,
     beds: 1,
@@ -75,6 +80,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "6",
     images: ["/images/House6.jpg", "/houses/Houseinterior6.jpg"],
+    tags: ["Garage", "Heating System"],
     title: "Newly Built Townhouse",
     price: 379000,
     beds: 3,
@@ -87,6 +93,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "7",
     images: ["/images/House7.jpg", "/houses/Houseinterior7.jpg"],
+    tags: ["Fireplace", "Balcony"],
     title: "Lakefront Vacation Cabin",
     price: 564000,
     beds: 3,
@@ -99,6 +106,7 @@ export const Featuredlistings: Houselisting[] = [
   {
     id: "8",
     images: ["/images/House8.jpg", "/houses/Houseinterior8.jpg"],
+    tags: ["Carpeted Floors", "Basement"],
     title: "Compact City Home",
     price: 309000,
     beds: 2,
@@ -107,6 +115,5 @@ export const Featuredlistings: Houselisting[] = [
     address: "508 Redwood St, Denver, CO",
     description:
       "A compact and efficient home featuring modern interior finishes, updated bathrooms, and a small private yard. Ideal for young professionals."
-  }]
-
-
+  }
+];

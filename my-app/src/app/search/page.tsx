@@ -2,26 +2,40 @@
 import CheckBox from "../componenets/CheckBox";
 import Menu from "../componenets/Menu";
 import { useState,useRef } from "react";
+import { Range } from "react-range";
 
 const Search = () => {
 
+  const input1 = useRef<HTMLInputElement | null>(null);
+    const input2 = useRef<HTMLInputElement | null>(null);
+  
 
-  const [filters, setFilters] = useState({
-
-    minPrice: 0,
+  const [filters, setFilters] = useState<{
+    minPrice: number | null;
+    maxPrice: number | null;
+    category: string[];
+    }>({
+    minPrice: null,
     maxPrice: null,
-    category: [],
-    
+    category: [], 
+});
 
-  }); 
+  const [checkedTags, setCheckedTags] = useState<{ [key: string]: boolean }>({});
+
+  const handleTagToggle = (tag: string) => {
+    setCheckedTags(prev => ({
+      ...prev,
+      [tag]: !prev[tag]
+    }));
+  };
 
   const handleClick = () => (
     console.log("button pressed")
   )
+
+  
   
 
-  const input1 = useRef(null)
-  const input2 = useRef(null)
 
 
 
@@ -103,35 +117,48 @@ const Search = () => {
 
                     
                     
-                    <CheckBox text="Swimming Pool" />
-                    <CheckBox text="Garage" />
-                    <CheckBox text="Basement" />
-                    <CheckBox text="Attic" />
-                    <CheckBox text="Fireplace" />
-                    <CheckBox text="Garden" />
-                    <CheckBox text="Balcony" />
-                    <CheckBox text="Patio" />
-                    <CheckBox text="Air Conditioning" />
-                    <CheckBox text="Heating System" />
-                    <CheckBox text="Hardwood Floors" />
-                    <CheckBox text="Carpeted Floors" />
+                        {[
+                        "Swimming Pool",
+                        "Garage",
+                        "Basement",
+                        "Attic",
+                        "Fireplace",
+                        "Garden",
+                        "Balcony",
+                        "Patio",
+                        "Air Conditioning",
+                        "Heating System",
+                        "Hardwood Floors",
+                        "Carpeted Floors"
+                        ].map(tag => (
+                        <CheckBox key={tag} checked={checkedTags[tag] || false} onToggle={handleTagToggle} text={tag} />
+                        ))}
 
                     <div className="  hidden xs:flex">
-                        <input
-                            type="range"
-                            
-
-                            
-                            className=""
-                        />
-
-                        <input
-                            type="range"
-                            
-
-                            
-                            className=""
-                        />
+                        <div className="relative h-5 w-full">
+                            <input
+                                type="range"
+                                min={0}
+                                max={1000000}
+                                value={filters.minPrice || 0}
+                                onChange={(e) =>
+                                setFilters((prev) => ({ ...prev, minPrice: Number(e.target.value) }))
+                                }
+                                className="absolute w-full pointer-events-none appearance-none"
+                                style={{ zIndex: 2 }}
+                            />
+                            <input
+                                type="range"
+                                min={0}
+                                max={1000000}
+                                value={filters.maxPrice || 1000000}
+                                onChange={(e) =>
+                                setFilters((prev) => ({ ...prev, maxPrice: Number(e.target.value) }))
+                                }
+                                className="absolute w-full pointer-events-none appearance-none"
+                                style={{ zIndex: 1 }}
+                            />
+                            </div>
                         
                     </div> 
 
