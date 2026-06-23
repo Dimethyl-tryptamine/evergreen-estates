@@ -1,15 +1,30 @@
-import { Featuredlistings } from "../../../public/SiteData";
+import React from "react";
+import { getFeaturedListings } from "../../../public/SiteData";
+import { Houselisting } from "../../../public/SiteData";
+
+const getListings = async () => { // Fetch the featured listings from the SiteData.tsx file
+    const data = await getFeaturedListings();
+   return  data;
+}
 
 
 
-const Listing = () => {
+
+
+const  Listing = async () => {
+
+
+
+    const data = await getListings();
+
+
 
 
    
     return(
         <div className="2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-1 justify-center justify-items-center">
 
-            {Featuredlistings.map((listing) => (
+            {data.map((listing: Houselisting) => (
 
                 
 

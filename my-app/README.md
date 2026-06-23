@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EverGreen Estates
 
-## Getting Started
+## Overview:
+Evergreen estates is a fictional real estate web application designed to demonstrate a responsive, mobile-first user experience for browsing property listings. Built with typescript, react incorporating API data fetching.
 
-First, run the development server:
+## Live Demo Link:
+[Visit site](https://evergreenestates.netlify.app/)
 
+## Features:
+- Responsive mobile-first design
+- Integrated third-party real estate API via RapidAPIwith [motion](https://motion.dev/)
+- Property browsing with search and filtering
+- Featured property listings
+- Dynamic property detail pages
+- Property image galleries
+- Favorites / saved properties system
+- User authentication (login, signup, logout)
+- User profile dashboard
+- Booking / viewing request flow (UI simulation)
+- Loading and error handling for data fetching
+- Form validation and accessibility support
+- SEO-friendly page structure
+- Reusable component-based architecture
+- Real estate data integration via REST API (or mock data)
+- Client-side filtering and search
+- Protected routes for authenticated users
+- Contact form
+
+
+## Technologies Used:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Motion
+- REST API 
+
+
+## Development Tools:
+- Git
+- GitHub
+- VS Code
+- ESLint
+
+## Repository:
+[View Repository](https://github.com/Dimethyl-tryptamine/Portfolio-Website)
+
+
+## Future Improvments:
+- Full backend integration with database ([Supabase](https://supabase.com/) or [Firebase](https://firebase.google.com/))
+- Real authentication with persistent sessions
+- Payment / booking system simulation (Stripe-style flow)
+- Map integration for property locations
+- Improved caching and performance optimization
+- Admin dashboard for managing listings
+- Deployment optimization (SEO + performance tuning)
+
+## Installation Steps:
+ Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/your-username/evergreen-estates.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate into the project:
+```bash
+   cd evergreen-estates
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Install dependencies:
+```bash
+   npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+   npm run dev
+```
 
-## Learn More
+5. Open in browser:
+The terminal will show the correct local URL (usually http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## Challenges & Lessons Learned:
+- Handling data fetching 
+- Learning how to design reusable UI components
+- Understanding tradeoffs between mock data and real API integration
+- Improving responsiveness and UI consistency across devices
+- async server components 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author  
+- Bryan Reyes 
