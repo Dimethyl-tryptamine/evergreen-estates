@@ -63,12 +63,13 @@ Evergreen estates is a fictional real estate web application designed to demonst
 ## Installation Steps:
  Clone the repository:
 ```bash
-   git clone https://github.com/your-username/evergreen-estates.git
+   git clone https://Dimethyl-tryptamine/evergreen-estates.git
 ```
 
 2. Navigate into the project:
 ```bash
    cd evergreen-estates
+   cd my-app
 ```
 
 3. Install dependencies:
