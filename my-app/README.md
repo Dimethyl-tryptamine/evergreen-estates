@@ -6,6 +6,11 @@ Evergreen estates is a fictional real estate web application designed to demonst
 ## Live Demo Link:
 [Visit site](https://evergreenestates.netlify.app/)
 
+![Evergreen Estates Homepage](./dev-images/Screenshot%202026-06-28%20134531.png)
+
+
+![Async UI State Pattern (Loading, Error, Empty, Success)](./dev-images/Screenshot%202026-06-28%20132230.png)
+
 ## Features:
 - Responsive mobile-first design
 - Integrated third-party real estate API via RapidAPIwith [motion](https://motion.dev/)
