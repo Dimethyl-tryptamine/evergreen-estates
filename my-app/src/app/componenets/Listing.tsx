@@ -1,30 +1,61 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import { getFeaturedListings } from "../../../public/SiteData";
 import { Houselisting } from "../../../public/SiteData";
 
-const getListings = async () => { // Fetch the featured listings from the SiteData.tsx file
-    const data = await getFeaturedListings();
-   return  data;
-}
 
 
+const  Listing = () => {
 
+    const [loading, setLoading] = React.useState(true);
+    const [listings, setListings] = React.useState<Houselisting[]>([]);
+    const [error, setError] = React.useState<string | null>(null);
 
+    
 
-const  Listing = async () => {
+   useEffect(() => {
+        const getListings = async () => { 
+            try { 
+                setLoading(true);
+                setError("");
+                setListings([]);
+                const data = await getFeaturedListings();
+                setListings(data);
+            } catch (err) {
+                setError("Failed to fetch listings");
+            } finally {
+                setLoading(false);
+            }
+            
+        }
+        getListings();
+        
+    },[])
 
+    if (loading) {
+        return <div>
+            loading...
+        </div>
+    }
 
+    if (error) {
+        return <div>
+            {error}
+        </div>
+    }
 
-    const data = await getListings();
-
-
+    if (listings.length === 0) {
+        return <div>
+            No listings found
+        </div>
+    }
 
 
    
     return(
         <div className="2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-1 justify-center justify-items-center">
 
-            {data.map((listing: Houselisting) => (
+            {listings.map((listing: Houselisting) => (
 
                 
 

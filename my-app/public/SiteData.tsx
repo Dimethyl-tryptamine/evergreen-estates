@@ -1,4 +1,4 @@
-export interface Houselisting {
+ export interface Houselisting {
   id: string;
   images: string[];
   tags: string[];

@@ -86,5 +86,24 @@ The terminal will show the correct local URL (usually http://localhost:3000)
 - Improving responsiveness and UI consistency across devices
 - async server components 
 
+
+## Client Components
+-By default, Next.js renders components on the server to improve initial page load speed and SEO. 
+
+The following components require `"use client"` because they depend on browser-only APIs or 
+React hooks that cannot run on the server.
+
+**`CheckBox.tsx`**
+Uses an `onChange` event handler to respond to user interaction. Event listeners are browser-only and cannot be attached during server-side rendering.
+
+**`Menu.tsx`**
+Uses `useState` to track whether the mobile overlay is open or closed, and Framer Motion's `AnimatePresence` to animate it in and out. Both require a live browser environment to respond to user actions and manage animation state.
+
+**`Listing.tsx`**
+Uses `useState` and `useEffect` to fetch property listings after the component mounts. `useEffect` is client-only — data fetching that depends on the component lifecycle cannot happen on the server in this pattern.
+
+**`search/page.tsx`**
+Uses `useState` to manage filter state, `useRef` to access price input values directly, and renders `CheckBox` and `Menu` which are already client components. Any page that uses hooks or renders client components must itself be marked as a client component.
+
 ## Author  
 - Bryan Reyes 
