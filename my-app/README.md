@@ -52,6 +52,9 @@ Evergreen estates is a fictional real estate web application designed to demonst
 
 
 ## Future Improvments:
+
+- impement a code distribution tool 
+(shadcn/ui)
 - Full backend integration with database ([Supabase](https://supabase.com/) or [Firebase](https://firebase.google.com/))
 - Real authentication with persistent sessions
 - Payment / booking system simulation (Stripe-style flow)
@@ -59,6 +62,7 @@ Evergreen estates is a fictional real estate web application designed to demonst
 - Improved caching and performance optimization
 - Admin dashboard for managing listings
 - Deployment optimization (SEO + performance tuning)
+
 
 ## Installation Steps:
  Clone the repository:
