@@ -1,39 +1,83 @@
 "use client";
+import { getFeaturedListings, Houselisting } from "../../../public/SiteData";
 import CheckBox from "../componenets/CheckBox";
+import Listing from "../componenets/Listing";
 import Menu from "../componenets/Menu";
-import { useState,useRef } from "react";
-import { Range } from "react-range";
+import { useState,useRef, useEffect,  } from "react";
 
-const Search = () => {
 
-  const input1 = useRef<HTMLInputElement | null>(null);
-    const input2 = useRef<HTMLInputElement | null>(null);
-  
 
-  const [filters, setFilters] = useState<{
+export interface filters {
     minPrice: number | null;
     maxPrice: number | null;
-    category: string[];
-    }>({
+    tags: string[];
+    search: string;
+
+}
+
+const initialFilters: filters = {
     minPrice: null,
     maxPrice: null,
-    category: [], 
-});
+    tags: [],
+    search: "",
+};
 
-  const [checkedTags, setCheckedTags] = useState<{ [key: string]: boolean }>({});
 
-  const handleTagToggle = (tag: string) => {
-    setCheckedTags(prev => ({
-      ...prev,
-      [tag]: !prev[tag]
-    }));
-  };
+const Search = () => {
+ 
+    const [filters, setFilters] = useState<filters>(initialFilters);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [listings, setListings] = useState<Houselisting[]>([]);    
+    
 
-  const handleClick = () => (
-    console.log("button pressed")
-  )
 
-  
+
+    useEffect(() => { // Fetch listings when the component mounts
+        const getListings = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+                console.log(filters);
+
+                const data = await getFeaturedListings();
+                setListings(data)
+
+            
+
+            } catch (err) {
+            setError("Failed to fetch listings");
+            } finally {
+            setLoading(false);
+            }}
+        getListings();
+        
+    },[]);
+
+    const filteredListings = listings.filter((listing) => { // Apply filters to the listings
+        if (filters.minPrice != null && listing.price < filters.minPrice) {
+            return false;
+        }
+
+        if (filters.maxPrice != null && listing.price > filters.maxPrice) {
+            return false;
+        }
+
+        if (filters.tags && filters.tags.length > 0) {
+            const hasMatch = listing.tags.some(tag =>
+            filters.tags.includes(tag.toLocaleLowerCase())
+            );
+
+            if (!hasMatch) return false;
+        }
+
+        return true;
+    });
+
+        
+
+
+
   
 
 
@@ -75,66 +119,48 @@ const Search = () => {
                 </span>
 
 
-                <form 
-                                    
-                    
+                <form className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-5 p-3  text-[.9rem]">
+                    {[
+                    "Swimming Pool",
+                    "Garage",
+                    "Basement",
+                    "Attic",
+                    "Fireplace",
+                    "Garden",
+                    "Balcony",
+                    "Patio",
+                    "Air Conditioning",
+                    "Heating System",
+                    "Hardwood Floors",
+                    "Carpeted Floors"
+                    ].map(tag => (
+                    <CheckBox
+                        key={tag}
+                        text={tag}
+                        filter={filters}
+                        onChange={(checked) => {
+                            setFilters(prev => {
+                            const tags = prev.tags;
+
+                            return {
+                                ...prev,
+                                tags: checked
+                                ? [...tags, tag.toLowerCase()]
+                                : tags.filter(t => t !== tag.toLowerCase())
+                            };
+                            });
+                        }}
+                        />
+                    ))}
+
                 
-                    className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-5 p-3  text-[.9rem]">
-
                     
                     
-                        {[
-                        "Swimming Pool",
-                        "Garage",
-                        "Basement",
-                        "Attic",
-                        "Fireplace",
-                        "Garden",
-                        "Balcony",
-                        "Patio",
-                        "Air Conditioning",
-                        "Heating System",
-                        "Hardwood Floors",
-                        "Carpeted Floors"
-                        ].map(tag => (
-                        <CheckBox key={tag} checked={checkedTags[tag] || false} onToggle={handleTagToggle} text={tag} />
-                        ))}
-
-                    
-                        <div className="hidden xs:flex relative h-5 w-full">
-                            <input
-                                type="range"
-                                min={0}
-                                max={1000000}
-                                value={filters.minPrice || 0}
-                                onChange={(e) =>
-                                setFilters((prev) => ({ ...prev, minPrice: Number(e.target.value) }))
-                                }
-                                className="absolute w-full pointer-events-none appearance-none"
-                                style={{ zIndex: 2 }}
-                            />
-                            <input
-                                type="range"
-                                min={0}
-                                max={1000000}
-                                value={filters.maxPrice || 1000000}
-                                onChange={(e) =>
-                                setFilters((prev) => ({ ...prev, maxPrice: Number(e.target.value) }))
-                                }
-                                className="absolute w-full pointer-events-none appearance-none"
-                                style={{ zIndex: 1 }}
-                            />
-                        </div>
-                        
                     
 
-                    <button onClick={handleClick} className=" xs:hidden bg-[#228000] text-3xl text-white rounded">Apply Filters</button>
+                    <button  className=" xs:hidden bg-[#228000] text-3xl text-white rounded">Apply Filters</button>
 
-                    <div className=" grid grid-cols-1 gap-1 xs:hidden">
-                        <input type="number" ref={input1} placeholder=" Min price" className="w-20 bg-[#141616] rounded" />
-                        <input type="number" ref={input2} placeholder=" Max price" className="w-20 bg-[#141616] rounded"  />
-                    </div>
-
+                    
 
                     
                         
@@ -150,7 +176,7 @@ const Search = () => {
             
             <div className="text-[#228000] m-2 mt-3 rounded-2xl bg-[#202324]"> 
                 
-                itemsshowcase#1
+                <Listing listings={filteredListings}  error={error}  loading={loading}  />
 
             </div>
 

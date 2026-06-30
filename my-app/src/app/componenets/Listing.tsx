@@ -1,54 +1,64 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { getFeaturedListings } from "../../../public/SiteData";
 import { Houselisting } from "../../../public/SiteData";
+import { filters } from "../search/page";
+
+
+interface ListingProps {
+  listings: Houselisting[];
+  error: string | null;
+  loading: boolean;
+ 
+ 
+}
+
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 
 
-const  Listing = () => {
 
-    const [loading, setLoading] = React.useState(true);
-    const [listings, setListings] = React.useState<Houselisting[]>([]);
-    const [error, setError] = React.useState<string | null>(null);
 
+
+const  Listing = ( {listings, error, loading}: ListingProps) => {
+
+   
+    
+   
+        
     
 
-   useEffect(() => {
-        const getListings = async () => { 
-            try { 
-                setLoading(true);
-                setError("");
-                setListings([]);
-                const data = await getFeaturedListings();
-                setListings(data);
-            } catch (err) {
-                setError("Failed to fetch listings");
-            } finally {
-                setLoading(false);
-            }
-            
-        }
-        getListings();
-        
-    },[])
+   
+
+   {console.log(listings)}
+
+  
+
+
+
+   
+       
 
     if (loading) {
-        return <div>
+        return <div className="flex justify-center items-center h-screen text-[#228000] text-2xl">
             loading...
         </div>
     }
 
     if (error) {
-        return <div>
-            {error}
+        console.error(error)
+        return <div className="flex justify-center items-center h-screen text-[#228000] text-2xl">
+            error: {error}
         </div>
     }
 
     if (listings.length === 0) {
-        return <div>
-            No listings found
+        return <div className="flex justify-center items-center h-screen text-white text-2xl">
+            no listings found
         </div>
     }
+          
+    
 
 
    
@@ -56,6 +66,8 @@ const  Listing = () => {
         <div className="2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-1 justify-center justify-items-center">
 
             {listings.map((listing: Houselisting) => (
+
+                
 
                 
 

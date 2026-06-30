@@ -85,7 +85,7 @@ Evergreen estates is a fictional real estate web application designed to demonst
 5. Open in browser:
 The terminal will show the correct local URL (usually http://localhost:3000)
 
-## Challenges & Lessons Learned:
+# Challenges & Lessons Learned:
 - Handling data fetching 
 - Learning how to design reusable UI components
 - Understanding tradeoffs between mock data and real API integration
@@ -110,6 +110,25 @@ Uses `useState` and `useEffect` to fetch property listings after the component m
 
 **`search/page.tsx`**
 Uses `useState` to manage filter state, `useRef` to access price input values directly, and renders `CheckBox` and `Menu` which are already client components. Any page that uses hooks or renders client components must itself be marked as a client component.
+
+##Search & Filtering System
+
+This project includes a client-side filtering system for property listings built with React state management.
+
+### Features
+- Filter by price range (min/max)
+- Filter by property features (tags like Garage, Pool, Fireplace, etc.)
+
+### How it works
+- Filter state is managed in the parent `Search` component using `useState`
+- Checkbox components update shared state using lifted state callbacks
+- Listings are dynamically filtered using `.filter()` before rendering
+
+### Key Concept
+This project demonstrates **lifting state up** in React to centralize filtering logic while keeping UI components reusable and focused on presentation.
+
+[checkbox props and system implementation](./dev-images/Screenshot%202026-06-30%20150120.png)
+
 
 ## Author  
 - Bryan Reyes 

@@ -1,26 +1,31 @@
 "use client";
-import React from "react";
+import React, { SetStateAction, useState,  Dispatch, useEffect } from "react";
+import { filters } from "../search/page";
 
-type CheckBoxProps = {
+interface CheckBoxProps {
   text: string;
-  checked: boolean;
-  onToggle: (tag: string) => void;
-};
+  filter?:Partial<filters>;
+  onChange: (checked: boolean) => void;
+  
+}
 
-const CheckBox: React.FC<CheckBoxProps> = ({ text, checked, onToggle }) => {
+
+const CheckBox: React.FC<CheckBoxProps> = ({ text, filter, onChange }) => {
+
+  const checked = filter?.tags?.includes(text.toLowerCase()) ?? false;
+
+
+ 
+  
   return (
-    <label className="inline-flex items-center cursor-pointer relative">
+    <label className="flex items-center space-x-2">
       <input
         type="checkbox"
-        className="absolute opacity-0 w-5 h-5 peer"
         checked={checked}
-        onChange={() => onToggle(text)}
+        onChange={(e) => onChange(e.target.checked)}
       />
-      <div
-        className={`w-5 h-5 rounded bg-[#141616] border border-[#228000] flex items-center justify-center 
-        ${checked ? "after:content-['✔']" : ""} text-white`}
-      />
-      <span className="ml-2 font-serif text-white">{text}</span>
+
+      <span>{text}</span>
     </label>
   );
 };
