@@ -1,4 +1,4 @@
- export interface Houselisting {
+export interface Houselisting {
   id: string;
   images: string[];
   tags: string[];
@@ -12,8 +12,8 @@
   description: string;
 };
 
-export async function getFeaturedListings(): Promise<Houselisting[]> {
-  const featuredListings: Houselisting[] = [
+export async function getListings(): Promise<Houselisting[]> {
+  const Listings: Houselisting[] = [
      {
     id: "1",
     images: ["/images/house1.jpg", "/images/house1-2.jpg"],
@@ -105,5 +105,5 @@ export async function getFeaturedListings(): Promise<Houselisting[]> {
   }
     
   ];
-  return featuredListings;
+  return Listings;
 }

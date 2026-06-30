@@ -1,8 +1,9 @@
+import { Houselisting } from "../../../public/SiteData";
 import Listing from "./Listing";
 import Nav from "./Nav";
 
 
-const FeaturedCommunities = () => {
+const FeaturedCommunities = ({ listings, error, loading }: { listings: Houselisting[], error: string | null, loading: boolean }) => {
 
 
 
@@ -36,7 +37,10 @@ const FeaturedCommunities = () => {
                     
                 
 
-                <Listing/>
+                <Listing 
+                listings={listings} 
+                error={error} 
+                loading={loading}/>
                 
                 
     

@@ -1,8 +1,7 @@
 'use client'
-import React, { useEffect, useMemo, useState } from "react";
-import { getFeaturedListings } from "../../../public/SiteData";
+
 import { Houselisting } from "../../../public/SiteData";
-import { filters } from "../search/page";
+
 
 
 interface ListingProps {
@@ -13,14 +12,11 @@ interface ListingProps {
  
 }
 
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 
 
 
-
-
-const  Listing = ( {listings, error, loading}: ListingProps) => {
+const Listing = ({ listings = [] , error, loading }: ListingProps) => {
 
    
     
@@ -30,7 +26,7 @@ const  Listing = ( {listings, error, loading}: ListingProps) => {
 
    
 
-   {console.log(listings)}
+   
 
   
 
@@ -52,7 +48,7 @@ const  Listing = ( {listings, error, loading}: ListingProps) => {
         </div>
     }
 
-    if (listings.length === 0) {
+    if (listings.length === 0 ) {
         return <div className="flex justify-center items-center h-screen text-white text-2xl">
             no listings found
         </div>
@@ -72,7 +68,7 @@ const  Listing = ( {listings, error, loading}: ListingProps) => {
                 
 
 
-                <div key={listing.id} className="bg-[#3A3F42] max-w-100   rounded-lg shadow-md overflow-hidden m-4">
+                <div key={listing.id} className="bg-[#3A3F42]    rounded-lg shadow-md overflow-hidden m-4">
                     <img src={listing.images[0]} alt={listing.title} className="w-full h-48 object-cover"/>
                     <div className="p-4 ">
                         
