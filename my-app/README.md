@@ -38,7 +38,6 @@ Evergreen estates is a fictional real estate web application designed to demonst
 - TypeScript
 - Tailwind CSS
 - Motion
-- REST API 
 
 
 ## Development Tools:
