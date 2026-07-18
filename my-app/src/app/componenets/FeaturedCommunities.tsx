@@ -1,6 +1,6 @@
 import { Houselisting } from "../../../public/SiteData";
 import Listing from "./Listing";
-import Nav from "./Nav";
+import Nav from "./Layout/Nav";
 
 
 const FeaturedCommunities = ({ listings, error, loading }: { listings: Houselisting[], error: string | null, loading: boolean }) => {

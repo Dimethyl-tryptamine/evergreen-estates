@@ -1,11 +1,11 @@
 "use client";
 
-import CheckBox from "../componenets/CheckBox";
-import {useState, useEffect} from 'react'
-import Menu from "../componenets/Menu";
-import Listing from "../componenets/Listing";
-import { Houselisting } from "../../../public/SiteData";
-import { getListings } from "../../../public/SiteData";
+import CheckBox from "../../componenets/CheckBox";
+import { useState, useEffect } from 'react';
+import Menu from "../../componenets/Layout/Menu";
+import Listing from "../../componenets/Listing";
+import { Houselisting } from "../../../../public/SiteData";
+import { getListings } from "../../../../public/SiteData";
 
 
 
@@ -105,28 +105,7 @@ const Search = () => {
 
 
 
-            <div className="flex w-full items-center bg-[#202324] ">
-                
-                <img className="w-10 h-10 mx-1"  src={"/images/logo/evergreen_logo.png"}/>
-
-
-                <span className="text-3xl mt-1 text-[#228000]">
-                    EverGreen Estates
-                </span>
-
-                
-
-                <nav className="ml-auto  justify-end  mr-2">
-
-                    <div className="xs:hidden">
-                        <Menu/>
-                    </div>
-
-
-                    
-                </nav>
-
-            </div>
+           
 
             <div className="text-[#228000] m-2 mt-3 rounded-2xl bg-[#202324] text-base">
 

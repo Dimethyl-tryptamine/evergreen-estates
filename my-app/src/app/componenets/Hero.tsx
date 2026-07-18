@@ -1,5 +1,5 @@
-import Menu from "./Menu";
-const Header = () => {
+import Menu from "./Layout/Menu";
+const Hero = () => {
 
 
     
@@ -48,4 +48,4 @@ const Header = () => {
 )};
     
 
-export default Header;
+export default Hero;
