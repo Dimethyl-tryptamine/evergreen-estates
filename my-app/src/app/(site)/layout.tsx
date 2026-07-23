@@ -9,11 +9,12 @@ export default function SiteLayout({
 }) {
   return (
     
-    <body>
-    <Header/>
-    <main className="min-h-screen">{children}</main>
-    <Footer />
-    </body>
+    <>
+      <Header/>
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+    </>
+    
     
   )
 }

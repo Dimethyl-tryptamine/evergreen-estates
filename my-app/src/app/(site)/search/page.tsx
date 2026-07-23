@@ -153,7 +153,7 @@ const Search = () => {
                     
                     
 
-                    <button  className=" xs:hidden bg-[#228000] text-3xl text-white rounded">Apply Filters</button>
+                   
 
                     
 
